@@ -1,0 +1,2 @@
+[app-name="Telegram Desktop" mode=default]
+on-notify=exec cvlc --play-and-exit ~/Musica/mixkit-long-pop-2358.wav

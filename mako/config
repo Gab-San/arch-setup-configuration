@@ -1,0 +1,21 @@
+# Styling
+background-color=#5F0F40ff
+border-color=#32132570
+border-radius=10
+icon-border-radius=3
+outer-margin=0,3
+padding=10,12
+
+# Behaviour
+
+default-timeout=3500
+ignore-timeout=1
+
+# Dimensions
+width=400
+height=200
+
+# Includes
+include=~/.config/mako/telegram_conf
+include=~/.config/mako/spotify_conf
+include=~/.config/mako/dnd_conf

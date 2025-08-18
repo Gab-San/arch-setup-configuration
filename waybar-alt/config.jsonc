@@ -1,0 +1,197 @@
+{
+    "layer": "top",
+    "height": 30, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    "name": "gambar-top",
+    "margin": "5 10 0 10",
+    // ------- LEFT MODULES SECTION --------
+    "modules-left": [
+        "tray",
+        "power-profiles-daemon",
+        "niri/language",
+        "network",
+        "idle_inhibitor",
+        "gamemode",
+        "privacy",
+    ],
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "privacy": {
+        "icon-size": 17,
+        "expand": true,
+        "modules": [
+		{
+			"type": "screenshare",
+			"tooltip": true,
+			"tooltip-icon-size": 20 
+		},
+		{
+			"type": "audio-out",
+			"tooltip": true,
+			"tooltip-icon-size": 20
+		},
+		{
+			"type": "audio-in",
+			"tooltip": true,
+			"tooltip-icon-size": 20 
+		}
+	],
+    },
+    "gamemode": {
+        "format-alt": "",
+    },
+    
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-linked": "",
+        "format-disconnected": "⚠",
+        "format-disabled": "",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) \n{ifname} via {gwaddr} ",
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+        }
+    },
+    "niri/language": {
+        "format": "{short} ({variant})",
+    },
+
+    // ----- CENTER MODULES -------
+    "modules-center": [
+        "custom/media",
+        "niri/workspaces"
+    ],
+    "custom/media": {
+        "format": "{text} {icon} ",
+        "format-icons": {
+            "spotify": "",
+            "default": "🎵"
+        },
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+    },
+    "custom/spotify": {
+        "format": "{text} {icon} ",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "interval": 30, // Remove this if your script is endless and write in loop
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+        "exec-if": "pgrep spotify",
+    },
+    "niri/workspaces" : {
+            // To configure
+            "format": "{icon}",
+            "format-icons":{
+                "browser": "",
+                "steam": "",
+                "code": "",
+                "audio": "",
+                "chat": "",
+                "video": "", 
+		"default": ""
+            },
+            "disable-click" : true,
+        },
+    // ------ RIGHT MODULES -------
+    "modules-right": [
+        "bluetooth",
+        "wireplumber",
+        "backlight",
+        "battery",
+        "clock",
+        "user",
+        "custom/powermenu",
+    ],
+    "bluetooth": {
+        "format-connected": "··",
+        "format-on": "",
+        "format-off": "!",
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",  
+        "format-icons": ["", "", ""],
+        "max-volume": 100.0,
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}",
+        "format-icons": [ "🌕", "🌖", "🌗",  "🌘", "🌑"],
+        "tooltip-format":"{percent}% {icon}",
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "clock": {
+        "format": "{:%a, %d/%m/%Y | %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+    },
+    "user": {
+        "format": "",
+        "icon": true,
+        "width": 40,
+        "height": 40,
+        "open-on-click": false,
+    },
+    "custom/powermenu": {
+        "format": "",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "logout": "niri msg action quit -s",
+            "shutdown": "shutdown now",
+            "reboot": "reboot",
+            "lock": "swaylock",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate",
+        }
+    },
+}
