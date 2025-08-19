@@ -10,9 +10,9 @@ configuration.
 The programs I am using are:
 
 - [alacritty](https://alacritty.org/config-alacritty.html) as terminal ([config]());
-- [fuzzel](https://codeberg.org/dnkl/fuzzel) as app launcher ([config]();
-- [waybar](https://github.com/Alexays/Waybar) for the bar ([config](./waybar));
-- [mako](https://github.com/emersion/mako) for notifications ([config]());
-- [swaybg](https://github.com/swaywm/swaybg) for overview background ([config]());
-- [swww](https://github.com/LGFae/swww) for wallpaper ([config]());
-- [swaylock](https://github.com/swaywm/swaylock) for locking the screen ([config]());
+- [fuzzel](https://codeberg.org/dnkl/fuzzel) as app launcher ([config](./fuzzel);
+- [waybar](https://github.com/Alexays/Waybar) for the bar ([config](./waybar) [alt-config](./waybar-alt));
+- [mako](https://github.com/emersion/mako) for notifications ([config](./mako));
+- [swaybg](https://github.com/swaywm/swaybg) for overview background;
+- [swww](https://github.com/LGFae/swww) for wallpaper;
+- [swaylock](https://github.com/swaywm/swaylock) for locking the screen ([config](./swaylock));

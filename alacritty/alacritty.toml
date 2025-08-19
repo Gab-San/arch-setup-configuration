@@ -1,0 +1,9 @@
+general.import = [
+    "font.toml",
+    "colors.toml",
+    "cursor.toml",
+]
+
+[window]
+padding = { x = 3 , y = 8 }
+decorations = "None"
