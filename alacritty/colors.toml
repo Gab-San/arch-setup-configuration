@@ -1,6 +1,6 @@
 [colors]
 primary.background = "#051020"
-cursor = { text = "CellBackground" , cursor = "#CCFF60" }
+# cursor = { text = "CellBackground" , cursor = "#CCFF60" }
 selection = { text = "CellBackground" , background = "#AECAE6" }
 footer_bar = { foreground = "#d8d8d8", background = "#4A0A3A" }
 
